@@ -13,12 +13,15 @@ import { HeroesService } from './services/heroes.service';
 
 // ROUTES
 import { APP_ROUTING } from './app.routes';
+// pipes
+import { KeysPipe } from './pipes/keys.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroeComponent
+    HeroeComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

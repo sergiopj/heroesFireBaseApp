@@ -17,18 +17,33 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">House</th>
-            <th scope="col">Options</th>
+            <th scope="col">Biography</th>
+            <th scope="col" class="text-right">Options</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let key of heroes | keys; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ heroes[key].name }}</td> 
+            <td>{{ heroes[key].house }}</td>
+            <td>{{ heroes[key].bio }}</td> 
+            <td class="text-right w230">
+              <button [routerLink]="['/heroe', key]"
+                      type="button"
+                      class="btn btn-outline-success">Edit</button>
+              <button (click)="deleteHero(key)"
+                      type="button"
+                      class="btn btn-outline-danger">Delete</button>        
+            </td>                      
           </tr>
         </tbody>
       </table>
+      <div *ngIf="(heroes | keys).length === 0 && !loading" class="alert alert-info text-center" role="alert">
+          No superhero data to show
+      </div>
+       <div *ngIf="loading" class="alert alert-warning text-center" role="alert">
+          <strong>Loading Data, please wait...</strong>
+      </div>
     </div>
   </div>
 </div>

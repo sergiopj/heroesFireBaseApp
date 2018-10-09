@@ -1,8 +1,15 @@
-<h3>Heroe <small>name...</small></h3>
+<h3>Heroe <small>{{ hero.name }}</small></h3>
 
 <button [routerLink]="['/heroes']"
         class="btn btn-outline-danger"
+        type="button"
         >Go Home
+</button>
+
+<button (click)="addNewHero(form)"
+        class="btn btn-outline-success"
+        type="button"
+        >New Hero
 </button>
 
 <hr>
